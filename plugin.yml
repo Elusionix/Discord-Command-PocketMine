@@ -2,8 +2,4 @@ name: Discord
 main: cmd\Main
 author: EluPhP
 api: 3.14.0
-version: 1.0
-
-commands:
-  discord:
-     description: "Montre le discord du serveur !"
+version: 1.1
