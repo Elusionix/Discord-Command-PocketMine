@@ -11,24 +11,18 @@ use pocketmine\command\Command;
 use pocketmine\command\CommandSender;
 
 use pocketmine\event\Listener;
-    
-    class main extends PluginBase implements Listener {
+use pocketmine\utils\Config;
 
+class main extends PluginBase implements Listener {
+
+	public $config;
       public function onEnable(){
-         $this->getLogger()->info("Enable");
+         $this->getLogger()->info("Plugin Enable");
+		  @mkdir($this->getDataFolder());
+		  $this->getServer()->getCommandMap()->register(".",new Discord("discord", $this));
           }
         
       public function onDisable(){
           $this->getLogger()->info("disable");
       }
-      
-      public function onCommand(CommandSender $sender, Command $cmd, String $Label, Array $args) : bool {
-         
-       switch($cmd->getName()){
-           case "discord":
-              $sender->sendMessage("§b» Voicie le serveur discord : §chttps://discord.gg/4WZ7uZep §f! \nBon jeux. §b«");
-               
-    }
-    return true;
-      }
-    }
+}
